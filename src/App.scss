@@ -1,0 +1,142 @@
+@import "./style/colors.scss";
+
+body {
+  font-size: 24px;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  background-color: $light_grayish_cyan;
+}
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  background-color: $white;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.logo {
+  margin-bottom: 4rem;
+}
+
+.calculator-wrapper {
+  padding: 2rem;
+  flex: 1;
+}
+
+.calculator-wrapper p {
+  color: $dark_grayish_cyan;
+}
+
+.display-wrapper {
+  flex: 1;
+  background-color: $very_dark_cyan;
+  border-radius: 1.5rem;
+  padding: 2rem;
+}
+
+.display-wrapper p {
+  color: $white;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    color: $dark_grayish_cyan;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  input {
+    text-align: right;
+  }
+  input.with-image {
+    padding-left: 30px;
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+  }
+  input.invalid{
+    border: 2px solid red !important;
+  }
+}
+
+p {
+  font-size: 14px;
+}
+
+input {
+  background-color: $very_light_grayish_cyan;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-size: 24px;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  color: $very_dark_cyan;
+}
+
+input:focus {
+  border-color: $primary-color !important;
+  border-width: 2px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.tips-wrapper {
+  // width:200px
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  .input-wrapper>input {
+    padding: 9px;
+  }
+}
+
+.tips-wrapper > div {
+  width: 33.33%;
+  padding-right: 0.5rem;
+  box-sizing: border-box;
+}
+
+.tipBox {
+  padding: 10px 0px;
+  background-color: $very_dark_cyan;
+  color: $white;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+
+  &.selected{
+    background-color: $primary-light;
+    color: $very_dark_cyan;
+  }
+}
+
+.labelWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.errorMessage {
+  color: red !important;
+  margin: 0;
+}
