@@ -13,9 +13,7 @@ function AmountDisplay({
         <p>{title}</p>
         <p className='sub-label'>{subtitle}</p>
       </div>
-      <div>
-        <p className='amount'>${amount}</p>
-      </div>
+        <p className='amount'>${amount.toFixed(2)}</p>
     </div>
   );
 }

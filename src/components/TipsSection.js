@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Input from './Input';
 
-function TipsSection({ tipSelectionList = [], onSelect }) {
+function TipsSection({ tipSelectionList = [], onSelect, tip }) {
   const [selectedValue, setSelectedValue] = useState('input');
+  const [inputValue, setInputValue] = useState('');
 
   const handleTipSelect = (x) => {
     setSelectedValue(x);
     onSelect({ tipPercentage: +x });
   };
+
+  useEffect(() => {
+    if (!(tip.tipAmount || tip.tipPercentage)) {
+      setSelectedValue('input');
+      setInputValue('');
+    }
+  }, [tip]);
 
   return (
     <div className="tips-wrapper">
@@ -22,7 +30,14 @@ function TipsSection({ tipSelectionList = [], onSelect }) {
         </div>
       ))}
       <div>
-        <Input onChange={(e) => onSelect({ tipAmount: +e })} onFocus={() => setSelectedValue('input')} />
+        <Input 
+        value={inputValue} 
+        placeholder='Custom'
+        onChange={(e) => {
+          onSelect({ tipAmount: +e });
+          setInputValue(e)
+        }}
+          onFocus={() => setSelectedValue('input')} />
       </div>
     </div>
   );

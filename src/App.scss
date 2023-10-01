@@ -44,6 +44,7 @@ body {
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .display-wrapper p {
@@ -164,5 +165,19 @@ input[type="number"]::-webkit-outer-spin-button {
   .amount {
     font-size: 40px;
     color: $primary-color;
+  }
+}
+
+.resetBtn{
+  background-color: #77D2C4;
+  color: $very_dark_cyan;
+  border: none;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 5px;
+
+  &:hover{
+    background-color: #97e4d8;
   }
 }

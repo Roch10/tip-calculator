@@ -24,6 +24,13 @@ function App() {
     setBillAmount(value);
   };
 
+  const reset = () => {
+    setBillAmount('');
+    setNumberOfPeople(null);
+    setTipAmount(0);
+    setTip({})
+  }
+
   return (
     <div className="main-container">
       <img className="logo" src="images/logo.svg" alt="Logo" />
@@ -39,7 +46,7 @@ function App() {
           />
 
           <p>Select Tip %</p>
-          <TipsSection tipSelectionList={tipSelectionList} onSelect={setTip} />
+          <TipsSection tipSelectionList={tipSelectionList} onSelect={setTip} tip={tip} />
 
           <Input
             placeholder="0"
@@ -52,9 +59,13 @@ function App() {
           />
         </div>
         <div className="display-wrapper">
-          <AmountDisplay title='Tip Amount' subtitle='/ person' amount={tipAmount && numberOfPeople ? (tipAmount/numberOfPeople).toFixed(2) : 0} />
-          <AmountDisplay title='Total' subtitle='/ person' amount={numberOfPeople && billAmount && tipAmount ?( (+tipAmount+ +billAmount)/ +numberOfPeople).toFixed(2) : 0} />
+          <div>
+            <AmountDisplay title='Tip Amount' subtitle='/ person' amount={tipAmount && numberOfPeople > 0 ? (tipAmount / numberOfPeople) : 0} />
+            <AmountDisplay title='Total' subtitle='/ person' amount={numberOfPeople > 0 && billAmount && tipAmount ? ((+tipAmount + +billAmount) / +numberOfPeople) : 0} />
+          </div>
+         
 
+          <button className='resetBtn' onClick={reset}>Reset</button>
         </div>
       </div>
     </div>
