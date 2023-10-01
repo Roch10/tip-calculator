@@ -8,12 +8,12 @@ function App() {
   const [billAmount, setBillAmount] = useState('');
   const [numberOfPeople, setNumberOfPeople] = useState(null);
   const [tipAmount, setTipAmount] = useState(0);
-  const [tip, setTip] = useState({});
+  const [tip, setTip] = useState({totalAmount:0});
 
   const tipSelectionList = [5, 10, 15, 25, 50];
 
   useEffect(() => {
-    if (tip.tipAmount) {
+    if (tip.tipAmount || tip.tipAmount===0) {
       setTipAmount(tip.tipAmount);
     } else if (tip.tipPercentage) {
       setTipAmount((tip.tipPercentage / 100) * billAmount);
@@ -61,7 +61,7 @@ function App() {
         <div className="display-wrapper">
           <div>
             <AmountDisplay title='Tip Amount' subtitle='/ person' amount={tipAmount && numberOfPeople > 0 ? (tipAmount / numberOfPeople) : 0} />
-            <AmountDisplay title='Total' subtitle='/ person' amount={numberOfPeople > 0 && billAmount && tipAmount ? ((+tipAmount + +billAmount) / +numberOfPeople) : 0} />
+            <AmountDisplay title='Total' subtitle='/ person' amount={numberOfPeople > 0 && billAmount ? ((+tipAmount + +billAmount) / +numberOfPeople) : 0} />
           </div>
          
 

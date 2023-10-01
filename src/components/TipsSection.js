@@ -8,10 +8,11 @@ function TipsSection({ tipSelectionList = [], onSelect, tip }) {
   const handleTipSelect = (x) => {
     setSelectedValue(x);
     onSelect({ tipPercentage: +x });
+    setInputValue('');
   };
 
   useEffect(() => {
-    if (!(tip.tipAmount || tip.tipPercentage)) {
+    if (!(tip.tipAmount || tip.tipAmount === 0 || tip.tipPercentage)) {
       setSelectedValue('input');
       setInputValue('');
     }
@@ -30,13 +31,13 @@ function TipsSection({ tipSelectionList = [], onSelect, tip }) {
         </div>
       ))}
       <div>
-        <Input 
-        value={inputValue} 
-        placeholder='Custom'
-        onChange={(e) => {
-          onSelect({ tipAmount: +e });
-          setInputValue(e)
-        }}
+        <Input
+          value={inputValue}
+          placeholder='Custom'
+          onChange={(e) => {
+            onSelect({ tipAmount: e ? +e : 0 });
+            setInputValue(e);
+          }}
           onFocus={() => setSelectedValue('input')} />
       </div>
     </div>
