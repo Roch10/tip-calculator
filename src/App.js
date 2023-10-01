@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.scss';
 import Input from './components/Input';
 import TipsSection from './components/TipsSection';
+import AmountDisplay from './components/AmountDisplay';
 
 function App() {
   const [billAmount, setBillAmount] = useState('');
@@ -51,8 +52,9 @@ function App() {
           />
         </div>
         <div className="display-wrapper">
-          <p>Tip Amount</p>
-          <p>{tipAmount}</p>
+          <AmountDisplay title='Tip Amount' subtitle='/ person' amount={tipAmount && numberOfPeople ? (tipAmount/numberOfPeople).toFixed(2) : 0} />
+          <AmountDisplay title='Total' subtitle='/ person' amount={numberOfPeople && billAmount && tipAmount ?( (+tipAmount+ +billAmount)/ +numberOfPeople).toFixed(2) : 0} />
+
         </div>
       </div>
     </div>

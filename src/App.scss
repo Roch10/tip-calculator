@@ -42,6 +42,8 @@ body {
   background-color: $very_dark_cyan;
   border-radius: 1.5rem;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .display-wrapper p {
@@ -139,4 +141,28 @@ input[type="number"]::-webkit-outer-spin-button {
 .errorMessage {
   color: red !important;
   margin: 0;
+}
+
+.amount-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+
+  p{
+    margin: 0;
+  }
+
+  .amountLabel:first-child{
+    font-size: 16px;
+  }
+
+  .sub-label{
+    color: $grayish_cyan
+  }
+
+  .amount {
+    font-size: 40px;
+    color: $primary-color;
+  }
 }
