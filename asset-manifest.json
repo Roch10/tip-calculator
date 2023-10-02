@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Roch10/tip-calculator/static/css/main.a763dba9.css",
+    "main.js": "/Roch10/tip-calculator/static/js/main.7b87b7b6.js",
+    "static/js/787.364622ff.chunk.js": "/Roch10/tip-calculator/static/js/787.364622ff.chunk.js",
+    "index.html": "/Roch10/tip-calculator/index.html",
+    "main.a763dba9.css.map": "/Roch10/tip-calculator/static/css/main.a763dba9.css.map",
+    "main.7b87b7b6.js.map": "/Roch10/tip-calculator/static/js/main.7b87b7b6.js.map",
+    "787.364622ff.chunk.js.map": "/Roch10/tip-calculator/static/js/787.364622ff.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a763dba9.css",
+    "static/js/main.7b87b7b6.js"
+  ]
+}
